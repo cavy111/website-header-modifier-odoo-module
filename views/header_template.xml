@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<data>
+
+<!-- targeting the website header and replacing it with custom header -->
+<template id="header" inherit_id="website.layout">
+  <xpath expr="//header" position="replace">
+
+  <html lang="en">
+
+    <head>
+  	  <title>Website menu 08</title>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'/>
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>	
+	    <link rel="stylesheet" href="website_header_modifier/static/src/css/style.css"/>
+	  </head>
+
+	<body>
+    <t t-call-assets="header.assets"/>	
+	    <div class="page">
+      <nav id="colorlib-main-nav" role="navigation">
+      <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
+      <div class="js-fullheight colorlib-table">
+        <div class="img" style="background-image: url(website_header_modifier/static/src/img/cover.jpg);"></div>
+        <div class="colorlib-table-cell js-fullheight">
+          <div class="row no-gutters">
+            <div class="col-md-12 text-center">
+              <h1 class="mb-4"><a href="index.html" class="logo"><t t-call="website.placeholder_header_brand"/></a></h1>
+              <ul>
+                <t t-foreach="env['website.page'].search([])" t-as="page">
+                <li class="active"><a t-att-href="page.url"><span><t t-out="page.name"/></span></a></li>
+                </t>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="colorlib-page">
+      <header>
+      	<div class="container">
+	        <div class="colorlib-navbar-brand">
+	          <a class="colorlib-logo" href="/"><t t-call="website.placeholder_header_brand"/></a>
+	        </div>
+	        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+        </div>
+      </header>
+    </div>
+  </div>
+
+	<script src="website_header_modifier/static/src/js/jquery.min.js"></script>
+  <script src="website_header_modifier/static/src/js/popper.js"></script>
+  <script src="website_header_modifier/static/src/js/bootstrap.min.js"></script>
+  <script src="website_header_modifier/static/src/js/main.js"></script>
+
+	</body>
+</html>
+
+</xpath>
+</template> 
+
+</data>
+</odoo>
+
